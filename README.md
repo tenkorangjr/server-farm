@@ -1,3 +1,2 @@
 # Server Farm
-
-Assigning jobs to servers
+Model of a Server Farm
