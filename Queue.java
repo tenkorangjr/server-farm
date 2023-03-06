@@ -1,3 +1,8 @@
+/*
+ * Name: Michael Tenkorang
+ * Class Purpose: Working with the Queue Abstract Data Structure
+ */
+
 public interface Queue<T> extends Iterable<T> {
 
     // This operation offers the given item into the queue

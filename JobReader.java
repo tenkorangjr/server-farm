@@ -1,3 +1,8 @@
+/*
+ * Name: Michael Tenkorang
+ * Class Purpose: Working with the Queue Abstract Data Structure
+ */
+
 import java.io.FileReader;
 import java.io.IOException;
 import java.io.BufferedReader;

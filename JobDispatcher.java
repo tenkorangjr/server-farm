@@ -1,3 +1,8 @@
+/*
+ * Name: Michael Tenkorang
+ * Class Purpose: Working with the Queue Abstract Data Structure
+ */
+
 public abstract class JobDispatcher {
 
     protected LinkedList<Server> serverCollection;
@@ -17,7 +22,9 @@ public abstract class JobDispatcher {
     }
 
     public void advanceTimeTo(double time) {
-
+        /*
+         * Advance the system's time to time and does same for servers
+         */
         for (Server server : serverCollection) {
             server.processTo(time);
         }
@@ -26,7 +33,9 @@ public abstract class JobDispatcher {
     }
 
     public void finishUp() {
-
+        /*
+         * Completes the remaining work of the servers
+         */
         double max = Double.NEGATIVE_INFINITY;
         for (Server server : serverCollection) {
             if (server.remainingWorkInQueue() > max) {
@@ -38,6 +47,9 @@ public abstract class JobDispatcher {
     }
 
     public void handleJob(Job job) {
+        /*
+         * Handle individual jobs
+         */
         advanceTimeTo(job.getArrivalTime());
         pickServer(job).addJob(job); // pick a server for the job and add job to the server
     }

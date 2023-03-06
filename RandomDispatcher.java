@@ -1,3 +1,8 @@
+/*
+ * Name: Michael Tenkorang
+ * Class Purpose: Working with the Queue Abstract Data Structure
+ */
+
 import java.util.Random;
 
 public class RandomDispatcher extends JobDispatcher {
@@ -9,6 +14,9 @@ public class RandomDispatcher extends JobDispatcher {
     }
 
     public Server pickServer(Job j) {
+        /*
+         * Pick appropriate server for dispatcher depending on dispatcher properties
+         */
         int randPick = randomPicker.nextInt(0, serverCollection.size());
 
         return serverCollection.get(randPick);

@@ -1,9 +1,24 @@
+/*
+ * Name: Michael Tenkorang
+ * Class Purpose: Working with the Queue Abstract Data Structure
+ */
+
 public class Exploration {
     public static void main(String[] args) {
 
+        /*
+         * Exploration with test files
+         */
+        RandomDispatcher dispatcher;
         double totalTimeInQueue = 0;
         JobReader jr = new JobReader();
-        LeastWorkDispatcher dispatcher = new LeastWorkDispatcher(34);
+
+        if (args.length == 0) {
+            dispatcher = new RandomDispatcher(34);
+
+        } else {
+            dispatcher = new RandomDispatcher(Integer.parseInt(args[0]));
+        }
 
         dispatcher.handleJobs(jr.readJobFile("JobSequence_3_100.txt"));
 

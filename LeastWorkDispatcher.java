@@ -1,3 +1,8 @@
+/*
+ * Name: Michael Tenkorang
+ * Class Purpose: Working with the Queue Abstract Data Structure
+ */
+
 public class LeastWorkDispatcher extends JobDispatcher {
 
     public LeastWorkDispatcher(int k) {

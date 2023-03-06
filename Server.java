@@ -1,3 +1,8 @@
+/*
+ * Name: Michael Tenkorang
+ * Class Purpose: Working with the Queue Abstract Data Structure
+ */
+
 public class Server {
     double sysTime;
     Queue<Job> sysQueue;
@@ -10,11 +15,17 @@ public class Server {
     }
 
     public void addJob(Job job) {
+        /*
+         * Add a job to a server
+         */
         sysQueue.offer(job);
         totalWork += job.getTotalProcessingTime();
     }
 
     public void processTo(double time) {
+        /*
+         * Process the job queue for time - sysTime units of time
+         */
         double myTimeRemaining = time - sysTime;
 
         while ((sysQueue.size() > 0) && (myTimeRemaining > 0)) {
@@ -41,10 +52,16 @@ public class Server {
     }
 
     public double remainingWorkInQueue() {
+        /*
+         * Get the remaining work in the queue of jobs
+         */
         return totalWork;
     }
 
     public int size() {
+        /*
+         * Return the size of the queue of jobs
+         */
         return sysQueue.size();
     }
 

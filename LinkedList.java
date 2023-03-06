@@ -1,10 +1,6 @@
 /*
- * Author: Michael Tenkorang
- * Title: Agent-Based Simulation
- * Date: 02/26/2023
- * CS 231
- * Section B
- * LinkedList.java
+ * Name: Michael Tenkorang
+ * Class Purpose: Working with the Queue Abstract Data Structure
  */
 
 import java.util.ArrayList;

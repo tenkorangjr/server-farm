@@ -1,3 +1,8 @@
+/*
+ * Name: Michael Tenkorang
+ * Class Purpose: Working with the Queue Abstract Data Structure
+ */
+
 public class RoundRobinDispatcher extends JobDispatcher {
     int index;
 
@@ -7,6 +12,10 @@ public class RoundRobinDispatcher extends JobDispatcher {
     }
 
     public Server pickServer(Job j) {
+        /*
+         * Pick appropriate server for dispatcher depending on dispatcher properties
+         */
+
         if (index == serverCollection.size()) {
             index = 0;
         }
