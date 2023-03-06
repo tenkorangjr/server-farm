@@ -1,16 +1,17 @@
 public class Server {
     double sysTime;
     Queue<Job> sysQueue;
-    LinkedList<Job> finishedJobs;
+    double totalWork;
 
     public Server() {
         sysTime = 0;
         sysQueue = new LinkedList<>();
-        finishedJobs = new LinkedList<>();
+        totalWork = 0;
     }
 
     public void addJob(Job job) {
         sysQueue.offer(job);
+        totalWork += job.getTotalProcessingTime();
     }
 
     public void processTo(double time) {
@@ -22,15 +23,17 @@ public class Server {
 
             if (timeToProcess >= myTimeRemaining) {
                 currentJob.process(myTimeRemaining);
+                totalWork -= myTimeRemaining;
                 sysTime += myTimeRemaining;
                 currentJob.setFinishTime(sysTime);
                 myTimeRemaining = 0;
             } else {
                 currentJob.process(timeToProcess);
+                totalWork -= timeToProcess;
                 myTimeRemaining -= timeToProcess;
                 sysTime += timeToProcess;
                 currentJob.setFinishTime(sysTime);
-                finishedJobs.add(sysQueue.poll());
+                sysQueue.poll();
             }
         }
 
@@ -38,14 +41,7 @@ public class Server {
     }
 
     public double remainingWorkInQueue() {
-        double toReturn = 0;
-
-        for (int i = 0; i < size(); i++) {
-            toReturn += sysQueue.peek().getTimeRemaining();
-            sysQueue.offer(sysQueue.poll());
-        }
-
-        return toReturn;
+        return totalWork;
     }
 
     public int size() {
@@ -72,7 +68,6 @@ public class Server {
         System.out.println(server.sysQueue.peek().getTimeProcessed() + " == 10.0");
         System.out.println(server.sysQueue.peek().getTimeRemaining() + " == 10.0");
         System.out.println(server.remainingWorkInQueue() + " == 80.0\n");
-        System.out.println(server.finishedJobs.size());
 
     }
 }

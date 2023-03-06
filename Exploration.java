@@ -3,15 +3,13 @@ public class Exploration {
 
         double totalTimeInQueue = 0;
         JobReader jr = new JobReader();
-        RandomDispatcher dispatcher = new RandomDispatcher(10);
+        LeastWorkDispatcher dispatcher = new LeastWorkDispatcher(34);
 
         dispatcher.handleJobs(jr.readJobFile("JobSequence_3_100.txt"));
 
         for (Job job : dispatcher.storeJobs) {
             totalTimeInQueue += job.timeInQueue();
         }
-
-        System.out.println(totalTimeInQueue);
 
         double average = totalTimeInQueue / dispatcher.storeJobs.size();
 
